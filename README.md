@@ -3,6 +3,8 @@
 **Full Stack Developer** · Montreal, QC  
 Computer Science @ John Abbott College · Class of 2026
 
+**Portfolio:** [linyue-dev.github.io](https://linyue-dev.github.io)
+
 ---
 
 ## About Me
