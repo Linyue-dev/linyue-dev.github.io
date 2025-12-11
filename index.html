@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Linyue Wang | Full Stack Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Linyue Wang - Full Stack Developer specializing in web and mobile applications. Computer Science student in Montreal.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+        line-height: 1.7;
+    }
+
+    header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 60px 20px;
+    }
+
+    .header-content {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .header-text {
+        text-align: left;
+    }
+
+    .header-text .title {
+        font-size: 1.3rem;
+        opacity: 0.95;
+        margin: 8px 0;
+        font-weight: 400;
+    }
+
+    .header-text .location {
+        font-size: 1rem;
+        opacity: 0.85;
+        font-weight: 300;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid rgba(255,255,255,0.9);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        background: rgba(255,255,255,0.2);
+        flex-shrink: 0;
+    }
+
+    .profile-placeholder {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid rgba(255,255,255,0.9);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        background: rgba(255,255,255,0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5rem;
+        color: white;
+        font-weight: 300;
+        flex-shrink: 0;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+
+    header p {
+        margin: 0;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 900px;
+        margin: -30px auto 40px;
+        padding: 0 20px;
+    }
+
+    .section {
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #333;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #667eea;
+        display: inline-block;
+    }
+
+    .section h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 25px 0 15px;
+        color: #444;
+    }
+
+    .section p {
+        color: #555;
+        font-size: 1rem;
+    }
+
+    .section ul {
+        color: #555;
+        padding-left: 20px;
+    }
+
+    .section ul li {
+        margin-bottom: 8px;
+    }
+
+    .project-card {
+        background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        border-left: 4px solid #667eea;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+    }
+
+    .project-card h4 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+
+    .tech-tags {
+        margin: 12px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .tech-tags span {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: #764ba2;
+    }
+
+    .project-links {
+        margin-top: 15px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .project-links a {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background: #667eea;
+        color: white;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        transition: background 0.2s ease;
+    }
+
+    .project-links a:hover {
+        background: #764ba2;
+        color: white;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .skills-list span {
+        background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
+        color: #667eea;
+        padding: 10px 18px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border: 2px solid #667eea;
+        transition: all 0.2s ease;
+    }
+
+    .skills-list span:hover {
+        background: #667eea;
+        color: white;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+        border-radius: 10px;
+        transition: transform 0.2s ease;
+    }
+
+    .contact-item:hover {
+        transform: translateY(-2px);
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: white;
+        font-weight: bold;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: white;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+        header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .header-content {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .profile-photo,
+        .profile-placeholder {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .section {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+        <img src="profile.jpg" alt="" class="profile-photo" onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';">
+        <div id="placeholder" class="profile-placeholder" style="display:none;">L</div>
+        <div class="header-text">
+            <h1>Linyue Wang</h1>
+            <p class="title">Full Stack Developer</p>
+            <p class="location">Montreal, QC · John Abbott College · Class of 2026</p>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- About Me -->
+    <div class="section">
+        <h2>About Me</h2>
+        <p>
+            I'm a Computer Science student specializing in full stack development. I build modern web 
+            and mobile applications using technologies like C#, Python, React, and Kotlin.
+        </p>
+        <p style="margin-top: 15px;">
+            I enjoy creating efficient, scalable, and user-focused solutions. I have hands-on experience 
+            with Docker, Azure cloud services, and CI/CD pipelines. I'm passionate about mobile development, 
+            backend architecture, and crafting intuitive user experiences.
+        </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+        <h2>Skills & Technologies</h2>
+        <div class="skills-list">
+            <span>C#</span>
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Python</span>
+            <span>Kotlin</span>
+            <span>ASP.NET Core</span>
+            <span>Entity Framework</span>
+            <span>Docker</span>
+            <span>CI/CD</span>
+            <span>Git</span>
+            <span>Azure</span>
+            <span>RESTful APIs</span>
+            <span>SQL Server</span>
+            <span>Android</span>
+        </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+        <h2>Featured Projects</h2>
+
+        <h3>GlowBook — Appointment Booking System</h3>
+        <div class="project-card">
+            <p>
+                A complete appointment-booking platform for beauty, spa, and wellness businesses. 
+                Features role-based authentication (Admin/Employee/Customer), service management with 
+                search and filtering, real-time calendar scheduling, and a modern admin dashboard. 
+                Deployed on Azure App Service with Azure SQL Database.
+            </p>
+            <div class="tech-tags">
+                <span>ASP.NET Core MVC</span>
+                <span>C#</span>
+                <span>Entity Framework</span>
+                <span>SQL Server</span>
+                <span>Bootstrap 5</span>
+                <span>Azure</span>
+            </div>
+            <div class="project-links">
+                <a href="https://webbookingsystem-fefbaxenexbzczdt.canadacentral-01.azurewebsites.net/" target="_blank">Live Demo</a>
+                <a href="https://github.com/Linyue-dev/GlowBook" target="_blank">View Code</a>
+            </div>
+        </div>
+
+        <h3>Home Budget System</h3>
+
+        <div class="project-card">
+            <h4>HomeBudget WPF — Desktop App</h4>
+            <p>
+                A WPF desktop application for managing personal finances. Built using MVVM architecture 
+                with features including expense tracking, budget categories, and data visualization.
+            </p>
+            <div class="tech-tags">
+                <span>C#</span>
+                <span>WPF</span>
+                <span>MVVM</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Linyue-dev/HomeBudget_WPF" target="_blank">View Code</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h4>Budget Backend API</h4>
+            <p>
+                RESTful backend API that powers the HomeBudget application. Handles data persistence, 
+                business logic, and provides endpoints for expense management and reporting.
+            </p>
+            <div class="tech-tags">
+                <span>C#</span>
+                <span>ASP.NET Core</span>
+                <span>Entity Framework</span>
+                <span>REST API</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Linyue-dev/Budget" target="_blank">View Code</a>
+            </div>
+        </div>
+
+        <h3>Active Portfolio Mobile App</h3>
+        <div class="project-card">
+            <p>
+                A mobile application for computer science students to showcase their programming projects. 
+                Built as a team project — I contributed to the backend authentication system and user management. 
+                Allows students to create profiles, upload projects, and connect with potential employers.
+            </p>
+            <div class="tech-tags">
+                <span>Kotlin</span>
+                <span>Android</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Linyue-dev/active-portfolio-mobile" target="_blank">View Code</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="section">
+        <h2>Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <div>
+                    <strong>Email</strong><br>
+                    <a href="mailto:selina_yue@hotmail.com">selina_yue@hotmail.com</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong>LinkedIn</strong><br>
+                    <a href="https://www.linkedin.com/in/linyue-wang" target="_blank">linyue-wang</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong>GitHub</strong><br>
+                    <a href="https://github.com/linyueCS-IT" target="_blank">linyueCS-IT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Beyond Coding -->
+    <div class="section">
+        <h2>Beyond Coding</h2>
+        <ul>
+            <li>I enjoy reading, especially history books — it helps me understand how ideas evolve over time.</li>
+            <li>I write travel logs and create vlogs to document and share my adventures.</li>
+            <li>Always learning something new — currently exploring cloud architecture and DevOps practices.</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 Linyue Wang
+</footer>
+
+</body>
+</html>
